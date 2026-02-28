@@ -1,0 +1,12 @@
+SELECT
+  CAST(default_payment_next_month AS INT64) AS label,
+  limit_balance,
+  age,
+  bill_amt_1,
+  pay_amt_1,
+  CAST(sex AS STRING) AS sex,
+  CAST(education_level AS STRING) AS education,
+  CAST(marital_status AS STRING) AS marriage,
+  CAST(id AS STRING) AS id
+FROM
+  `bigquery-public-data.ml_datasets.credit_card_default`
