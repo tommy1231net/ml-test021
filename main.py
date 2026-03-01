@@ -68,7 +68,7 @@ def predict(data: LoanPredictionInput):
     
     # Apply a strict threshold of 0.1 for banking risk management
     # If the probability is 10% or higher, the loan is rejected (is_default = 1)
-    prediction = 1 if probability >= 0.1 else 0
+    prediction = 1 if probability >= 0.15 else 0
 
     # Return JSON response with structured results
     return {
