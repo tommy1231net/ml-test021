@@ -66,6 +66,10 @@ def predict(data: LoanPredictionInput):
     prediction = int(model.predict(final_df)[0])
     probability = float(model.predict_proba(final_df)[0][1])
     
+    # Apply a strict threshold of 0.1 for banking risk management
+    # If the probability is 10% or higher, the loan is rejected (is_default = 1)
+    prediction = 1 if probability >= 0.1 else 0
+
     # Return JSON response with structured results
     return {
         "is_default": prediction,
